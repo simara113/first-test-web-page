@@ -28,9 +28,12 @@ let myhead = document.querySelector('h1');
 
 function setusername() {
     let myname = prompt('Enter your name:');
+    if(!myname || myname === null) {
+        setusername();
+    } else { 
     localStorage.setItem('name' , myname);
     myhead.textContent = 'Paragliding is cool, ' + myname;
-
+    }
 }
 if(!localStorage.getItem('name')) {
     setusername();
